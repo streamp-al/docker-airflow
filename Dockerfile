@@ -8,7 +8,7 @@ ENV TERM linux
 # Airflow
 ARG AIRFLOW_HOME=/usr/local/airflow
 ARG AIRFLOW_DEPS="all_dbs,ldap,async"
-ARG PYTHON_DEPS=""
+ARG PYTHON_DEPS="pyodbc"
 ENV AIRFLOW_GPL_UNIDECODE yes
 
 # Define en_US.
@@ -26,6 +26,7 @@ RUN set -ex \
         libssl-dev \
         libffi-dev \
         libpq-dev \
+        unixodbc-dev \
         git \
     ' \
     && apt-get update -yqq \
