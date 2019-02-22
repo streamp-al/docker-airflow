@@ -1,4 +1,4 @@
-FROM python:3.6-slim
+FROM python:slim
 LABEL maintainer="DACRepair@gmail.com"
 
 # Never prompts the user for choices on installation/configuration of packages
