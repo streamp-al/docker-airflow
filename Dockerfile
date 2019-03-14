@@ -5,6 +5,8 @@ LABEL maintainer="DACRepair@gmail.com"
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM linux
 
+ENV TZ=America/Los_Angeles
+
 # Airflow
 ARG AIRFLOW_HOME=/usr/local/airflow
 ARG AIRFLOW_DEPS="all_dbs,ldap,async"
@@ -17,6 +19,8 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LC_CTYPE en_US.UTF-8
 ENV LC_MESSAGES en_US.UTF-8
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN set -ex \
     && buildDeps=' \
